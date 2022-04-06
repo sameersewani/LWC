@@ -1,0 +1,61 @@
+<template>
+    <lightning-card title="Static Resource" icon-name="utility:user">
+
+            <div if:true={isshow}>
+                <lightning-input type="time" value={mytime} onchange={timechange}  label="Enter time" placeholder="Select time...">
+                </lightning-input>              
+                <lightning-button variant="brand" label="Cancel" title="Primary action"  onclick ={off} class="slds-m-left_x-small">
+
+                </lightning-button>
+            </div>
+
+
+
+        <div class="slds-var-m-around_medium">
+                <div style="padding:10px">
+                    <img  onclick={handleClick}  class="clock"  src={clock}/>
+                    <img   onclick={navigateToObjectHome} class="tt" src={tt}/><br>
+                    
+                    <div if:true={track5}>
+                        <img  class="obstical"  src={obstical}/><br>
+                        <img  class="track" src={train}/><br>
+                        <img  class="track" src={train}/><br>
+                   </div>
+
+                   <div if:true={track1}> 
+                    <img class="obstical" src={obstical}/><br>
+                    <img   class="track" src={track}/><br>
+                    <img  class="track" src={track}/><br>
+                  </div>
+
+                    
+
+                    <div if:true={track2}>
+                        <img  class="obstical"  src={obstical}/><br>
+                     <img  class="track" src={track}/><br>
+                    <img  class="track" src={train}/><br>
+                   </div>
+
+                    
+
+                 <div if:true={track3}>
+                    <img  class="obstical"  src={obstical}/><br>
+                    <img  class="track" src={train}/><br>
+                    <img  class="track" src={track}/><br>
+                </div>
+                    
+
+                    <div if:true={track4}>
+                        <img  class="obstical"  src={obstical}/><br>
+                        <img  class="track" src={train}/><br>
+                        <img  class="track" src={train}/><br>
+                   </div>
+
+                    
+                </div>
+        </div>
+
+    </lightning-card>
+
+</template>
+

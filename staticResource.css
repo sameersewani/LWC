@@ -1,0 +1,30 @@
+.clock
+{
+    width: 200px;
+    height: 200px;
+    margin-right: 300px;
+}
+.tt
+{
+    
+    width: 200px;
+    height: 200px;
+}
+.train
+{
+    width: 600px;
+    height: 300px;
+    
+}
+.track
+{
+    width: 600px;
+    height: 300px;
+
+}
+.obstical
+{
+    width: 600px;
+    height: 200px;
+    margin-top: 50px;
+}
