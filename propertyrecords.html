@@ -1,0 +1,101 @@
+<!-- sldsValidatorIgnore -->
+<template>
+<div class="slds-grid slds-gutters">
+
+    <!-- grid 1 of property -->
+    <div class="slds-col slds-size_2-of-3">
+        
+            <lightning-card title="Properties Records"></lightning-card>
+
+            <div class="slds-box slds-theme_default">
+                <table  style="border: 3px solid black;" class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                    <thead>
+                        <tr>
+                            <th   style="border: 3px solid black;" class="" scope="col">
+                                <div class="slds-truncate" title="Property Name">Name</div>
+                            </th>
+                            <th  style="border: 3px solid black;" class="" scope="col">
+                                <div class="slds-truncate" title="Property Photo">Photo</div>
+                            </th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <template for:each={properties.data} for:item="p">
+                            <tr key={p.Id} data-id={p.Id} onclick={contactGet}>
+                                <td  style="border: 3px solid black;">{p.Name}</td>
+                                <td  style="border: 3px solid black;">
+                                    <img style="height: 80px;" src={p.Photo__c}>
+                                 </td>
+                            </tr>
+                        </template>
+                    </tbody>
+
+                </table>
+            </div> 
+        
+    
+    </div>
+
+
+ <!--_______________________ grid 2 of Contact_______________________ -->
+             <div class="slds-col slds-size_1-of-3" if:true={isshow}>
+            
+                    <lightning-card title="Contacts Records">
+                    </lightning-card>
+
+                    <button  class="slds-button slds-button_brand" onclick={contactCreate}>Create Contact
+                    </button>
+
+                    <template for:each={store} for:item="c"  for:index="index">
+                        <lightning-card  title={c.LastName} key={c.Id}>
+                            <img style="height:50px;" src={c.Photo__c}>
+                        </lightning-card>
+                    </template> 
+            </div>
+
+      <div if:true={isshow2}>
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                        <!-- Modal/Popup Box LWC header here -->
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+
+                                <lightning-icon icon-name="utility:close"
+                                    alternative-text="close"
+                                    variant="inverse"
+                                    size="small" >
+                                </lightning-icon>
+
+                                <span class="slds-assistive-text">Close </span>
+                            </button>
+        
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create Contact</h2>
+                        </header>
+        
+                          <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <lightning-input label="Name" onchange={handleChange} class="slds-m-bottom_x-small">
+        
+                        </lightning-input>
+                                    
+                        <lightning-input label="Photo" onchange={handleChange} class="slds-m-bottom_x-small">
+        
+                        </lightning-input>
+                    </div>
+        
+                        <footer class="slds-modal__footer">
+                            <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel
+                            </button>
+        
+                            <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK
+                            </button>
+                        </footer>
+
+              </div>
+              </section>
+      </div>
+ </div>
+</template>
